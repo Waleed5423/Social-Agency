@@ -148,7 +148,7 @@ const FunctionalSidebar = () => {
           type: "spring",
           stiffness: 300,
           damping: 80,
-          delay: 0.8,
+          delay: 0.2,
         }}
         className="bg-white shadow-lg  sticky top-0 w-full z-40"
       >
@@ -159,7 +159,7 @@ const FunctionalSidebar = () => {
             type: "spring",
             stiffness: 300,
             damping: 80,
-            delay: 0.3,
+            delay: 0.1,
           }}
           className="bg-blue-600 text-white px-4 py-1"
         >
@@ -202,7 +202,7 @@ const FunctionalSidebar = () => {
             type: "spring",
             stiffness: 300,
             damping: 80,
-            delay: 0.5,
+            delay: 0.1,
           }}
           className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8"
         >
