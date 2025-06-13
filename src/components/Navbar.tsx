@@ -161,7 +161,7 @@ const FunctionalSidebar = () => {
             damping: 80,
             delay: 0.1,
           }}
-          className=" bg-gradient-to-br from-blue-600 to-blue-500 text-white px-4 py-0.5"
+          className="hidden md:block bg-gradient-to-br from-blue-600 to-blue-500 text-white px-4 py-0.5"
         >
           <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-x-6 gap-y-2 text-sm">
             {/* Contact Info - Always in line */}
@@ -560,7 +560,6 @@ const FunctionalSidebar = () => {
                 </div>
 
                 {/* Sidebar Footer */}
-               
               </motion.div>
             </motion.div>
           </>
