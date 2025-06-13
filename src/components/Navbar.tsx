@@ -150,7 +150,7 @@ const FunctionalSidebar = () => {
           damping: 80,
           delay: 0.2,
         }}
-        className="bg-white shadow-lg  sticky top-0 w-full z-40"
+        className="bg-white shadow-lg sticky top-0 w-full z-40"
       >
         <motion.div
           initial={{ y: -100 }}
@@ -161,20 +161,21 @@ const FunctionalSidebar = () => {
             damping: 80,
             delay: 0.1,
           }}
-          className="bg-blue-600 text-white px-4 py-1"
+          className=" bg-gradient-to-br from-blue-600 to-blue-500 text-white px-4 py-0.5"
         >
-          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-sm">
-            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+          <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-x-6 gap-y-2 text-sm">
+            {/* Contact Info - Always in line */}
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
               <a
                 href="tel:0092155596"
-                className="flex items-center gap-2 hover:text-blue-100 transition-colors"
+                className="flex items-center gap-2 hover:text-blue-100 transition-colors whitespace-nowrap"
               >
                 <Phone size={18} className="text-blue-200" />
                 <span className="font-medium">009-215-5596</span>
               </a>
               <a
                 href="mailto:info@domain.com"
-                className="flex items-center gap-2 hover:text-blue-100 transition-colors"
+                className="flex items-center gap-2 hover:text-blue-100 transition-colors whitespace-nowrap"
               >
                 <Mail size={18} className="text-blue-200" />
                 <span className="font-medium">info@domain.com</span>
@@ -182,8 +183,8 @@ const FunctionalSidebar = () => {
             </div>
 
             {/* Language Selector */}
-            <div className="flex items-center gap-4">
-              <button className="flex items-center gap-2 px-3 py-1.5 rounded-md transition-all group">
+            <div className="flex items-center">
+              <button className="flex items-center gap-2 px-3 py-1.5 rounded-md transition-all group whitespace-nowrap">
                 <Globe
                   size={16}
                   className="text-blue-200 group-hover:text-white"
@@ -204,7 +205,7 @@ const FunctionalSidebar = () => {
             damping: 80,
             delay: 0.1,
           }}
-          className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8"
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <div className="flex justify-between items-center h-16">
             <motion.div
@@ -255,11 +256,11 @@ const FunctionalSidebar = () => {
               </motion.button>
             </div>
 
-            {/* Desktop Hamburger Menu (top-right) */}
+            {/* Desktop Hamburger Menu (top-right) - UNCHANGED */}
             <div className="hidden md:block">
               <motion.button
                 onClick={toggleSidebar}
-                className="p-2 cursor-pointer text-blue-600 border-blue-600 border-2  rounded-full transition-colors focus:outline-none"
+                className="p-2 cursor-pointer text-blue-600 border-blue-600 border-2 rounded-full transition-colors focus:outline-none"
                 whileHover={{ rotate: 180 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 400, damping: 50 }}
@@ -268,37 +269,23 @@ const FunctionalSidebar = () => {
                 <Menu size={24} />
               </motion.button>
             </div>
+
+            {/* Mobile Hamburger Menu (in navbar) - NEW VERSION */}
+            <div className="md:hidden flex items-center">
+              <motion.button
+                onClick={toggleSidebar}
+                className="p-2 cursor-pointer text-blue-600 hover:bg-blue-50 rounded-full transition-colors focus:outline-none"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                aria-label="Open sidebar menu"
+              >
+                <Menu size={24} />
+              </motion.button>
+            </div>
           </div>
         </motion.div>
       </motion.nav>
-
-      {/* Mobile Floating Hamburger Menu (bottom-left) */}
-      <AnimatePresence>
-        {!isSidebarOpen && (
-          <motion.div
-            className="md:hidden fixed bottom-6 left-6 z-50"
-            initial={{ scale: 0, rotate: -180 }}
-            animate={{ scale: 1, rotate: 0 }}
-            exit={{ scale: 0, rotate: 180 }}
-            transition={{ type: "spring", stiffness: 400, damping: 25 }}
-          >
-            <motion.button
-              onClick={toggleSidebar}
-              className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-full shadow-xl hover:shadow-2xl transition-shadow"
-              whileHover={{
-                scale: 1.1,
-                boxShadow: "0 20px 40px rgba(59, 130, 246, 0.4)",
-                rotate: 90,
-              }}
-              whileTap={{ scale: 0.9 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              aria-label="Open sidebar menu"
-            >
-              <Menu size={28} />
-            </motion.button>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* Sidebar Overlay and Content */}
       <AnimatePresence>
@@ -311,7 +298,7 @@ const FunctionalSidebar = () => {
               exit="closed"
               variants={overlayVariants}
               className="fixed inset-0 z-50"
-              style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+              style={{ backgroundColor: "rgba(0, 0, 0, 0.7)" }}
               onClick={closeSidebar}
             />
 
@@ -332,7 +319,7 @@ const FunctionalSidebar = () => {
               >
                 {/* Sidebar Header */}
                 <motion.div
-                  className="flex items-center justify-between p-6 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-indigo-50"
+                  className="flex items-center justify-between px-6 py-5 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-indigo-50"
                   variants={itemVariants}
                 >
                   <div className="flex items-center space-x-3">
@@ -573,14 +560,7 @@ const FunctionalSidebar = () => {
                 </div>
 
                 {/* Sidebar Footer */}
-                <motion.div
-                  className="p-6 border-t border-gray-200 bg-gray-50"
-                  variants={itemVariants}
-                >
-                  <p className="text-xs text-gray-500 text-center">
-                    © 2024 SEOCIFY. All rights reserved.
-                  </p>
-                </motion.div>
+               
               </motion.div>
             </motion.div>
           </>
