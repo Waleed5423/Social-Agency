@@ -187,7 +187,7 @@ const About = () => {
             variants={itemVariants}
             className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-16"
           >
-            Why We're Different
+            Why We&apos;re Different
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
