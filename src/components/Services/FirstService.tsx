@@ -72,7 +72,7 @@ const FirstService = () => {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-600 to-blue-500 text-white py-20 px-5 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br  h-[85vh] from-blue-600 to-blue-500 text-white py-20 px-5 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial="hidden"
