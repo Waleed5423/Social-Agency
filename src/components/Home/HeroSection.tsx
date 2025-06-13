@@ -67,7 +67,7 @@ const HeroSection = () => {
           <div className="space-y-4 text-center lg:text-left text-white">
             <motion.h1
               variants={itemVariants}
-              className="text-xl sm:text-4xl  font-bold leading-snug"
+              className="text-3xl sm:text-4xl  font-bold leading-snug"
             >
               We Help Scale Your Restaurant and Increase Customers with Paid Ads
             </motion.h1>
