@@ -54,7 +54,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative overflow-hidden  bg-gradient-to-br from-blue-600 to-blue-400 h-[85vh]">
+    <section className="relative overflow-hidden bg-gradient-to-br from-blue-600 to-blue-400 h-[85vh]">
       {/* Content Container */}
       <div className="relative h-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center z-10">
         <motion.div
@@ -67,7 +67,7 @@ const HeroSection = () => {
           <div className="space-y-4 text-center lg:text-left text-white">
             <motion.h1
               variants={itemVariants}
-              className="text-3xl sm:text-4xl  font-bold leading-snug"
+              className="text-3xl sm:text-4xl font-bold leading-snug"
             >
               We Help Scale Your Restaurant and Increase Customers with Paid Ads
             </motion.h1>

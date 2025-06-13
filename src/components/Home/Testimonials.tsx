@@ -59,10 +59,10 @@ const Testimonials = () => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   const itemsPerSlide = isMobile ? 1 : 3;
@@ -71,7 +71,7 @@ const Testimonials = () => {
   // Auto-play functionality
   useEffect(() => {
     if (!isAutoPlaying) return;
-    
+
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % totalSlides);
     }, 5000);
@@ -162,7 +162,7 @@ const Testimonials = () => {
           >
             <ChevronLeft className="w-6 h-6 text-blue-600" />
           </button>
-          
+
           <button
             onClick={goToNext}
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 bg-white hover:bg-gray-50 p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-105"
@@ -182,9 +182,16 @@ const Testimonials = () => {
                 transition={{ duration: 0.5, ease: "easeInOut" }}
                 className="absolute inset-0"
               >
-                <div className={`grid gap-6 h-full ${isMobile ? 'grid-cols-1' : 'grid-cols-3'}`}>
+                <div
+                  className={`grid gap-6 h-full ${
+                    isMobile ? "grid-cols-1" : "grid-cols-3"
+                  }`}
+                >
                   {testimonials
-                    .slice(currentIndex * itemsPerSlide, (currentIndex + 1) * itemsPerSlide)
+                    .slice(
+                      currentIndex * itemsPerSlide,
+                      (currentIndex + 1) * itemsPerSlide
+                    )
                     .map((testimonial, index) => (
                       <div
                         key={currentIndex * itemsPerSlide + index}
@@ -209,7 +216,9 @@ const Testimonials = () => {
                               <h4 className="font-bold text-gray-900 text-sm">
                                 {testimonial.author}
                               </h4>
-                              <p className="text-xs text-gray-500">{testimonial.role}</p>
+                              <p className="text-xs text-gray-500">
+                                {testimonial.role}
+                              </p>
                             </div>
                           </div>
 

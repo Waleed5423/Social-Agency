@@ -16,22 +16,8 @@ import {
 const Footer = () => {
   const footerLinks = [
     {
-      title: "Services",
-      links: [
-        "Paid Advertising",
-        "Social Media Management",
-        "SEO Optimization",
-        "Content Creation",
-        "Email Marketing",
-      ],
-    },
-    {
       title: "Company",
       links: ["About Us", "Our Team", "Careers", "Blog", "Contact"],
-    },
-    {
-      title: "Resources",
-      links: ["Case Studies", "Webinars", "Guides", "Help Center", "Community"],
     },
   ];
 
@@ -76,7 +62,7 @@ const Footer = () => {
   return (
     <footer className="bg-gradient-to-br from-blue-600 to-blue-500 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {/* Brand Info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -110,7 +96,7 @@ const Footer = () => {
             </div>
           </motion.div>
 
-          {/* Footer Links */}
+          {/* Company Links */}
           {footerLinks.map((section, index) => (
             <motion.div
               key={index}
@@ -188,31 +174,19 @@ const Footer = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="border-t border-blue-400/30 my-10"
+          className="border-t border-blue-400/30 mt-2"
         />
 
-        {/* Copyright */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row justify-between items-center gap-4 text-blue-100 text-sm"
+          className="flex flex-col md:flex-row justify-between items-center  text-blue-100 text-sm"
         >
           <p>
             © {new Date().getFullYear()} TableTurn Media. All rights reserved.
           </p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Terms of Service
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Cookies
-            </a>
-          </div>
         </motion.div>
       </div>
     </footer>
