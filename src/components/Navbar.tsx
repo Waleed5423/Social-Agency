@@ -14,6 +14,7 @@ import {
   Linkedin,
   Globe,
 } from "lucide-react";
+import Link from "next/link";
 
 const FunctionalSidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -226,33 +227,30 @@ const FunctionalSidebar = () => {
 
             {/* Desktop Navigation Links */}
             <div className="hidden md:flex items-center space-x-8">
-              <motion.a
-                href="#"
+              <motion.h4
                 className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                HOME
-              </motion.a>
-              <motion.a
-                href="#"
+                <Link href="/">HOME</Link>
+              </motion.h4>
+              <motion.h4
                 className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                SERVICES
-              </motion.a>
-              <motion.a
-                href="#"
+                <Link href="/OurServices">SERVICES</Link>
+              </motion.h4>
+              <motion.h4
                 className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                ABOUT US
-              </motion.a>
+                <Link href="/About">ABOUT US</Link>
+              </motion.h4>
               <motion.button
                 className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors font-medium shadow-md"
                 whileTap={{ scale: 1.01 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                GET STARTED
+                <Link href="/Contact">GET STARTED</Link>
               </motion.button>
             </div>
 
