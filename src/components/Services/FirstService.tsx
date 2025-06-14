@@ -47,6 +47,15 @@ const FirstService = () => {
     "24/7 campaign monitoring",
   ];
 
+  const testimonials = [
+    "Increased our reservations by 40% in just 2 weeks!",
+    "Best ROI we've ever had from marketing",
+    "Finally found an agency that understands restaurants",
+    "Our Friday nights are now fully booked",
+    "Worth every penny - the ads pay for themselves",
+    "Customer quality is so much better than other ads we've tried",
+  ];
+
   // Animation variants
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -279,6 +288,50 @@ const FirstService = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Marquee Section */}
+      <section className="bg-white py-12 overflow-hidden">
+        <div className="relative">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-blue-400"></div>
+          </div>
+          <div className="relative flex justify-center">
+            <span className="bg-white px-4 text-sm text-gray-500">
+              TRUSTED BY RESTAURANTS NATIONWIDE
+            </span>
+          </div>
+        </div>
+
+        <div className="mt-8">
+          <div className="overflow-hidden whitespace-nowrap">
+            <div className="inline-block animate-marquee">
+              {[...testimonials, ...testimonials].map((testimonial, index) => (
+                <span
+                  key={index}
+                  className="inline-block mx-8 text-blue-600 font-medium text-xl"
+                >
+                  {testimonial}
+                  <span className="mx-4 text-blue-400">•</span>
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <style jsx global>{`
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-marquee {
+          animation: marquee 30s linear infinite;
+        }
+      `}</style>
     </div>
   );
 };
