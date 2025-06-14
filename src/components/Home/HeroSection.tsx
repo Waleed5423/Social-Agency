@@ -7,7 +7,7 @@ import img1 from "@/assets/Ill3.svg";
 
 const HeroSection = () => {
   // Animation settings with 2-second delay
-  const containerVariants:Variants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -19,7 +19,7 @@ const HeroSection = () => {
     },
   };
 
-  const itemVariants:Variants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -28,16 +28,16 @@ const HeroSection = () => {
     },
   };
 
-  const imageVariants:Variants = {
+  const imageVariants: Variants = {
     hidden: { opacity: 0, x: 20 },
     visible: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.8, ease: "easeOut", delay: 2.6 },
+      transition: { duration: 0.8, ease: "easeOut", delay: 1.6 },
     },
   };
 
-  const circleVariants:Variants  = {
+  const circleVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 0.2,
