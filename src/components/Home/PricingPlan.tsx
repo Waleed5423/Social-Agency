@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence,Variants  } from "framer-motion";
 import { CheckCircle, ChevronLeft, ChevronRight } from "lucide-react";
 
 const PricingPlan = () => {
@@ -60,7 +60,7 @@ const PricingPlan = () => {
   ];
 
   // Animation variants
-  const containerVariants = {
+  const containerVariants:Variants   = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -72,7 +72,7 @@ const PricingPlan = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants:Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -81,7 +81,7 @@ const PricingPlan = () => {
     },
   };
 
-  const sliderVariants = {
+  const sliderVariants:Variants = {
     enter: (direction: string) => {
       return {
         x: direction === "right" ? 300 : -300,

@@ -1,13 +1,13 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion,Variants } from "framer-motion";
 import Image from "next/image";
 import img1 from "@/assets/Ill4.svg";
 
 const Services = () => {
   // Animation variants
-  const containerVariants = {
+  const containerVariants:Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -19,7 +19,7 @@ const Services = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants:Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -28,7 +28,7 @@ const Services = () => {
     },
   };
 
-  const circleVariants = {
+  const circleVariants:Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 0.1,

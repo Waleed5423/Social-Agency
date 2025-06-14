@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 const Testimonials = () => {
@@ -95,7 +95,7 @@ const Testimonials = () => {
   };
 
   // Animation variants
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -107,7 +107,7 @@ const Testimonials = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -116,7 +116,7 @@ const Testimonials = () => {
     },
   };
 
-  const slideVariants = {
+  const slideVariants: Variants = {
     enter: { opacity: 0, x: 100 },
     center: { opacity: 1, x: 0 },
     exit: { opacity: 0, x: -100 },

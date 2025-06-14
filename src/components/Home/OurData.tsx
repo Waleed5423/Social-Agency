@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, useAnimation, useInView } from "framer-motion";
+import { motion, useAnimation, useInView,Variants } from "framer-motion";
 import { useRef } from "react";
 
 const OurData = () => {
@@ -45,7 +45,7 @@ const OurData = () => {
     }
   }, [isInView]);
 
-  const containerVariants = {
+  const containerVariants:Variants= {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -57,7 +57,7 @@ const OurData = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants:Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,

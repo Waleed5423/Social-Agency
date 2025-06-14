@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import {
   Menu,
   X,
@@ -59,7 +59,7 @@ const FunctionalSidebar = () => {
   };
 
   // Sidebar slide animation variants
-  const sidebarVariants = {
+  const sidebarVariants:Variants = {
     open: {
       x: 0,
       opacity: 1,
@@ -84,7 +84,7 @@ const FunctionalSidebar = () => {
     },
   };
 
-  const overlayVariants = {
+  const overlayVariants:Variants = {
     open: {
       x: 0,
       opacity: 1,
