@@ -11,14 +11,14 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f0f0f0;
+  background: #b2cdff;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #3b82f6; /* Tailwind's blue-500 */
+  background-color: #2563eb; /* Tailwind's blue-500 */
   border-radius: 4px;
-  border: 1px solid #f0f0f0;
+  border: 1px solid #b1cdff;
 }
 
 ::-webkit-scrollbar-thumb:hover {
