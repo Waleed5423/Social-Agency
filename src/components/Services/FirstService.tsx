@@ -48,7 +48,7 @@ const FirstService = () => {
   ];
 
   // Animation variants
-  const containerVariants:Variants= {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -60,7 +60,7 @@ const FirstService = () => {
     },
   };
 
-  const itemVariants:Variants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -72,7 +72,7 @@ const FirstService = () => {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br  h-[85vh] from-blue-600 to-blue-500 text-white py-20 px-5 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br h-[85vh] from-blue-600 to-blue-500 text-white py-10 px-5 sm:px-6 lg:px-8 grid place-items-center">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial="hidden"
@@ -84,7 +84,7 @@ const FirstService = () => {
             <div className="space-y-6">
               <motion.h1
                 variants={itemVariants}
-                className="text-4xl sm:text-4xl font-bold leading-tight"
+                className="text-4xl sm:text-5xl font-bold leading-tight"
               >
                 Restaurant Advertising That Actually Works
               </motion.h1>

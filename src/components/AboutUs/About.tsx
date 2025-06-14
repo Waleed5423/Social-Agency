@@ -54,9 +54,9 @@ const About = () => {
   };
 
   return (
-    <div className="bg-white">
+    <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br  h-[85vh] from-blue-600 to-blue-500 text-white py-5 px-5 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br h-[85vh] from-blue-600 to-blue-500 text-white py-10 px-5 sm:px-6 lg:px-8 grid place-items-center">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial="hidden"
@@ -68,7 +68,7 @@ const About = () => {
             <div className="space-y-6">
               <motion.h1
                 variants={itemVariants}
-                className="text-4xl sm:text-4xl font-bold leading-tight"
+                className="text-4xl sm:text-5xl font-bold leading-tight"
               >
                 Fighting for Independent Restaurants
               </motion.h1>
@@ -281,7 +281,7 @@ const About = () => {
           </motion.div>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 
