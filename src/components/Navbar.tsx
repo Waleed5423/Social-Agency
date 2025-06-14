@@ -59,7 +59,7 @@ const FunctionalSidebar = () => {
   };
 
   // Sidebar slide animation variants
-  const sidebarVariants:Variants = {
+  const sidebarVariants: Variants = {
     open: {
       x: 0,
       opacity: 1,
@@ -84,7 +84,7 @@ const FunctionalSidebar = () => {
     },
   };
 
-  const overlayVariants:Variants = {
+  const overlayVariants: Variants = {
     open: {
       x: 0,
       opacity: 1,
@@ -142,6 +142,48 @@ const FunctionalSidebar = () => {
 
   return (
     <>
+      <motion.div
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{
+          type: "spring",
+          stiffness: 300,
+          damping: 80,
+          delay: 0.1,
+        }}
+        className="hidden md:block bg-gradient-to-br from-blue-600 to-blue-500 text-white px-4 py-0.5"
+      >
+        <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-x-6 gap-y-2 text-sm">
+          {/* Contact Info - Always in line */}
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <a
+              href="tel:0092155596"
+              className="flex items-center gap-2 hover:text-blue-100 transition-colors whitespace-nowrap"
+            >
+              <Phone size={18} className="text-blue-200" />
+              <span className="font-medium">009-215-5596</span>
+            </a>
+            <a
+              href="mailto:info@domain.com"
+              className="flex items-center gap-2 hover:text-blue-100 transition-colors whitespace-nowrap"
+            >
+              <Mail size={18} className="text-blue-200" />
+              <span className="font-medium">info@domain.com</span>
+            </a>
+          </div>
+
+          {/* Language Selector */}
+          <div className="flex items-center">
+            <button className="flex items-center gap-2 px-3 py-1.5 rounded-md transition-all group whitespace-nowrap">
+              <Globe
+                size={16}
+                className="text-blue-200 group-hover:text-white"
+              />
+              <span className="font-medium">EN</span>
+            </button>
+          </div>
+        </div>
+      </motion.div>
       <motion.nav
         initial={{ y: -150 }}
         animate={{ y: 0 }}
@@ -153,49 +195,6 @@ const FunctionalSidebar = () => {
         }}
         className="bg-white shadow-lg sticky top-0 w-full z-40"
       >
-        <motion.div
-          initial={{ y: -100 }}
-          animate={{ y: 0 }}
-          transition={{
-            type: "spring",
-            stiffness: 300,
-            damping: 80,
-            delay: 0.1,
-          }}
-          className="hidden md:block bg-gradient-to-br from-blue-600 to-blue-500 text-white px-4 py-0.5"
-        >
-          <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-x-6 gap-y-2 text-sm">
-            {/* Contact Info - Always in line */}
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-              <a
-                href="tel:0092155596"
-                className="flex items-center gap-2 hover:text-blue-100 transition-colors whitespace-nowrap"
-              >
-                <Phone size={18} className="text-blue-200" />
-                <span className="font-medium">009-215-5596</span>
-              </a>
-              <a
-                href="mailto:info@domain.com"
-                className="flex items-center gap-2 hover:text-blue-100 transition-colors whitespace-nowrap"
-              >
-                <Mail size={18} className="text-blue-200" />
-                <span className="font-medium">info@domain.com</span>
-              </a>
-            </div>
-
-            {/* Language Selector */}
-            <div className="flex items-center">
-              <button className="flex items-center gap-2 px-3 py-1.5 rounded-md transition-all group whitespace-nowrap">
-                <Globe
-                  size={16}
-                  className="text-blue-200 group-hover:text-white"
-                />
-                <span className="font-medium">EN</span>
-              </button>
-            </div>
-          </div>
-        </motion.div>
-
         {/* Desktop Top Navigation Bar */}
         <motion.div
           initial={{ y: -150 }}
