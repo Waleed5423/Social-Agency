@@ -12,12 +12,26 @@ import {
   Linkedin,
   Globe,
 } from "lucide-react";
+import Link from "next/link";
 
 const Footer = () => {
   const footerLinks = [
     {
       title: "Company",
-      links: ["About Us", "Our Team", "Careers", "Blog", "Contact"],
+      linkText: [
+        "About Us",
+        "Services",
+        "Contact Us",
+        "Privacy Policty",
+        "Terms of Services",
+      ],
+      link: [
+        "/About",
+        "/OurServices",
+        "/Contact-us",
+        "/Privacy-Policy",
+        "/Terms-and-services",
+      ],
     },
   ];
 
@@ -108,21 +122,19 @@ const Footer = () => {
             >
               <h3 className="text-lg font-bold">{section.title}</h3>
               <ul className="space-y-3">
-                {section.links.map((link, linkIndex) => (
+                {section.linkText.map((text, linkIndex) => (
                   <li key={linkIndex}>
-                    <motion.a
-                      href="#"
+                    <motion.h4
                       className="text-blue-100 hover:text-white transition-colors"
                       whileHover={{ x: 5 }}
                     >
-                      {link}
-                    </motion.a>
+                      <Link href={section.link[linkIndex]}>{text}</Link>
+                    </motion.h4>
                   </li>
                 ))}
               </ul>
             </motion.div>
           ))}
-
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

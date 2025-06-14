@@ -250,7 +250,7 @@ const FunctionalSidebar = () => {
                 whileTap={{ scale: 1.01 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <Link href="/Contact">GET STARTED</Link>
+                <Link href="/GetStarted">GET STARTED</Link>
               </motion.button>
             </div>
 
