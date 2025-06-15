@@ -4,6 +4,7 @@ import React from "react";
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import img1 from "@/assets/Ill3.svg";
+import Link from "next/link";
 
 const HeroSection = () => {
   // Animation settings with 2-second delay
@@ -12,7 +13,7 @@ const HeroSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        delay: 1,
+        delay: 0.5,
         when: "beforeChildren",
         staggerChildren: 0.2,
       },
@@ -54,7 +55,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-blue-600 to-blue-400 h-[85vh]">
+    <section className="relative bg-gradient-to-br min-h-[85vh] from-blue-600 to-blue-500 text-white py-10 px-5 sm:px-6 lg:px-8 grid place-items-center">
       {/* Content Container */}
       <div className="relative h-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center z-10">
         <motion.div
@@ -84,13 +85,15 @@ const HeroSection = () => {
               variants={itemVariants}
               className="flex flex-wrap justify-center lg:justify-start items-center gap-3 pt-2"
             >
-              <motion.button
-                whileHover={{ scale: 1.0 }}
-                whileTap={{ scale: 0.98 }}
-                className="bg-white cursor-pointer hover:bg-gray-100 text-blue-600 px-6 py-2.5 rounded-full text-sm font-medium shadow-md transition-colors"
-              >
-                Book a Free Consultation Call
-              </motion.button>
+              <Link href="/GetStarted">
+                <motion.button
+                  whileHover={{ scale: 1.0 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="bg-white cursor-pointer hover:bg-gray-100 text-blue-600 px-6 py-2.5 rounded-full text-sm font-medium shadow-md transition-colors"
+                >
+                  Book a Free Consultation Call
+                </motion.button>
+              </Link>
             </motion.div>
           </div>
 

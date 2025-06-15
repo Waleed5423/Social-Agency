@@ -4,6 +4,7 @@ import React from "react";
 import { motion,Variants } from "framer-motion";
 import Image from "next/image";
 import img1 from "@/assets/Ill4.svg";
+import Link from "next/link";
 
 const Services = () => {
   // Animation variants
@@ -86,9 +87,11 @@ const Services = () => {
             </motion.p>
 
             <motion.div variants={itemVariants} className="pt-4">
-              <button className="bg-blue-600 cursor-pointer  hover:bg-blue-700 text-white px-6 py-3 rounded-full text-sm font-medium shadow-md transition-colors duration-300">
-                Learn More About Our Process
-              </button>
+              <Link href="/OurServices">
+                <button className="bg-blue-600 cursor-pointer  hover:bg-blue-700 text-white px-6 py-3 rounded-full text-sm font-medium shadow-md transition-colors duration-300">
+                  Learn More About Our Process
+                </button>
+              </Link>
             </motion.div>
           </div>
 

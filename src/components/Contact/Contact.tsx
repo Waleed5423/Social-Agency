@@ -12,7 +12,11 @@ import {
   Instagram,
   Linkedin,
   ArrowRight,
+  CheckCircle,
+  XCircle,
 } from "lucide-react";
+import emailjs from '@emailjs/browser';
+import { Toaster, toast } from 'sonner';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -23,9 +27,12 @@ const Contact = () => {
   });
 
   const [isMounted, setIsMounted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
+    // Initialize EmailJS with your public key
+    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!);
   }, []);
 
   const handleChange = (
@@ -38,9 +45,43 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone_number: formData.phone,
+          message: formData.message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+
+      toast.success('Message sent successfully!', {
+        icon: <CheckCircle className="w-5 h-5 text-green-500" />,
+        description: 'We will get back to you soon.',
+      });
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch (error) {
+      toast.error('Failed to send message', {
+        icon: <XCircle className="w-5 h-5 text-red-500" />,
+        description: 'Please try again later.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Animation variants
@@ -66,11 +107,13 @@ const Contact = () => {
   };
 
   if (!isMounted) {
-    return null; // Or return a loading state
+    return null;
   }
 
   return (
     <div className="bg-white">
+      <Toaster position="top-center" richColors />
+      
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-600 to-blue-500 text-white py-28 px-5 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto text-center">
@@ -121,7 +164,7 @@ const Contact = () => {
                   htmlFor="name"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  Your Name
+                  Your Name <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -139,7 +182,7 @@ const Contact = () => {
                   htmlFor="email"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  Email Address
+                  Email Address <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="email"
@@ -174,7 +217,7 @@ const Contact = () => {
                   htmlFor="message"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  How Can We Help?
+                  How Can We Help? <span className="text-red-500">*</span>
                 </label>
                 <textarea
                   id="message"
@@ -190,9 +233,13 @@ const Contact = () => {
               <motion.div variants={itemVariants}>
                 <button
                   type="submit"
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium w-full transition-colors flex items-center justify-center gap-2"
+                  disabled={isSubmitting}
+                  className={`bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium w-full transition-colors flex items-center justify-center gap-2 ${
+                    isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+                  }`}
                 >
-                  Send Message <ArrowRight className="w-5 h-5" />
+                  {isSubmitting ? 'Sending...' : 'Send Message'} 
+                  {!isSubmitting && <ArrowRight className="w-5 h-5" />}
                 </button>
               </motion.div>
             </form>
@@ -225,10 +272,10 @@ const Contact = () => {
                 <div>
                   <h3 className="font-bold text-gray-900">Phone</h3>
                   <a
-                    href="tel:0092155596"
+                    href="tel:6475370690"
                     className="text-blue-600 hover:text-blue-800 transition-colors"
                   >
-                    009-215-5596
+                    647-537-0690
                   </a>
                   <p className="text-sm text-gray-500 mt-1">
                     Mon-Fri, 9am-5pm EST
@@ -313,7 +360,7 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Map Section - Only render on client */}
+      {/* Map Section */}
       {isMounted && (
         <section className="bg-gray-100 py-12 px-5 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">

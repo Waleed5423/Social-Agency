@@ -3,6 +3,7 @@
 import React from "react";
 import { motion,Variants } from "framer-motion";
 import { CheckCircle } from "lucide-react";
+import Link from "next/link";
 
 const Offer = () => {
   // Animation variants
@@ -122,9 +123,11 @@ const Offer = () => {
         </motion.div>
 
         <motion.div variants={itemVariants} className="text-center mt-16">
-          <button className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-3 rounded-full text-sm font-medium shadow-lg transition-all duration-300 transform hover:scale-105">
-            Get Started Today
-          </button>
+          <Link href="/GetStarted">
+            <button className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-3 rounded-full text-sm font-medium shadow-lg transition-all duration-300 transform hover:scale-105">
+              Get Started Today
+            </button>
+          </Link>
         </motion.div>
       </div>
     </section>

@@ -15,6 +15,8 @@ import {
   Globe,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import logo from "@/assets/logo2.png";
 
 const FunctionalSidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -68,7 +70,7 @@ const FunctionalSidebar = () => {
         stiffness: 300,
         damping: 30,
         duration: 1,
-        delay: 0.1, // Starts slightly before overlay
+        delay: 0.1,
       },
     },
     closed: {
@@ -79,7 +81,7 @@ const FunctionalSidebar = () => {
         stiffness: 300,
         damping: 30,
         duration: 1,
-        delay: 0.2, // Closes after overlay
+        delay: 0.2,
       },
     },
   };
@@ -93,7 +95,7 @@ const FunctionalSidebar = () => {
         stiffness: 300,
         damping: 30,
         duration: 1,
-        delay: 0.3, // Starts after sidebar
+        delay: 0.3,
       },
     },
     closed: {
@@ -103,7 +105,7 @@ const FunctionalSidebar = () => {
         type: "spring",
         stiffness: 300,
         damping: 30,
-        duration: 1, // Faster close
+        duration: 1,
       },
     },
   };
@@ -157,11 +159,11 @@ const FunctionalSidebar = () => {
           {/* Contact Info - Always in line */}
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <a
-              href="tel:0092155596"
+              href="tel:6475370690"
               className="flex items-center gap-2 hover:text-blue-100 transition-colors whitespace-nowrap"
             >
               <Phone size={18} className="text-blue-200" />
-              <span className="font-medium">009-215-5596</span>
+              <span className="font-medium">647 537 0690</span>
             </a>
             <a
               href="mailto:info@domain.com"
@@ -184,6 +186,7 @@ const FunctionalSidebar = () => {
           </div>
         </div>
       </motion.div>
+
       <motion.nav
         initial={{ y: -150 }}
         animate={{ y: 0 }}
@@ -213,14 +216,18 @@ const FunctionalSidebar = () => {
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-md">
-                  <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
-                    <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                  </div>
+                <div className="flex items-center space-x-3">
+                  <motion.div className="" transition={{ duration: 0.6 }}>
+                    <Link href="/">
+                      <Image
+                        src={logo}
+                        alt="Agency Logo"
+                        width={160}
+                        className=""
+                      />
+                    </Link>
+                  </motion.div>
                 </div>
-                <span className="text-2xl font-bold text-gray-800">
-                  SEOCIFY
-                </span>
               </div>
             </motion.div>
 
@@ -244,6 +251,12 @@ const FunctionalSidebar = () => {
               >
                 <Link href="/About">ABOUT US</Link>
               </motion.h4>
+              <motion.h4
+                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              >
+                <Link href="/Testimonials">TESTIMONIALS</Link>
+              </motion.h4>
               <motion.button
                 className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors font-medium shadow-md"
                 whileTap={{ scale: 1.01 }}
@@ -253,7 +266,7 @@ const FunctionalSidebar = () => {
               </motion.button>
             </div>
 
-            {/* Desktop Hamburger Menu (top-right) - UNCHANGED */}
+            {/* Desktop Hamburger Menu (top-right) */}
             <div className="hidden md:block">
               <motion.button
                 onClick={toggleSidebar}
@@ -267,7 +280,7 @@ const FunctionalSidebar = () => {
               </motion.button>
             </div>
 
-            {/* Mobile Hamburger Menu (in navbar) - NEW VERSION */}
+            {/* Mobile Hamburger Menu (in navbar) */}
             <div className="md:hidden flex items-center">
               <motion.button
                 onClick={toggleSidebar}
@@ -320,24 +333,18 @@ const FunctionalSidebar = () => {
                   variants={itemVariants}
                 >
                   <div className="flex items-center space-x-3">
-                    <motion.div
-                      className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg"
-                      whileHover={{ rotate: 360, scale: 1.1 }}
-                      transition={{ duration: 0.6 }}
-                    >
-                      <div className="w-7 h-7 bg-white rounded-full flex items-center justify-center">
-                        <div className="w-4 h-4 bg-blue-500 rounded-full"></div>
-                      </div>
+                    <motion.div className="" transition={{ duration: 0.6 }}>
+                      <Link href="/" onClick={closeSidebar}>
+                        <Image
+                          src={logo}
+                          alt="Agency Logo"
+                          width={200}
+                          className=""
+                        />
+                      </Link>
                     </motion.div>
-                    <div>
-                      <h2 className="text-xl font-bold text-gray-800">
-                        SEOCIFY
-                      </h2>
-                      <p className="text-sm text-blue-600 font-medium">
-                        Digital Agency
-                      </p>
-                    </div>
                   </div>
+
                   <motion.button
                     onClick={closeSidebar}
                     className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -358,26 +365,75 @@ const FunctionalSidebar = () => {
                       <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
                         Navigation
                       </h3>
-                      {["Home", "Services", "About Us"].map((link) => (
-                        <motion.a
-                          key={link}
-                          href="#"
+                      <motion.div
+                        whileHover={{ x: -10, backgroundColor: "#eff6ff" }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 17,
+                        }}
+                      >
+                        <Link
+                          href="/"
                           className="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors font-medium"
                           onClick={closeSidebar}
-                          whileHover={{ x: -10, backgroundColor: "#eff6ff" }}
-                          whileTap={{ scale: 0.95 }}
-                          transition={{
-                            type: "spring",
-                            stiffness: 400,
-                            damping: 17,
-                          }}
                         >
-                          {link}
-                        </motion.a>
-                      ))}
-                      <motion.button
-                        className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all font-medium shadow-md"
-                        onClick={closeSidebar}
+                          Home
+                        </Link>
+                      </motion.div>
+                      <motion.div
+                        whileHover={{ x: -10, backgroundColor: "#eff6ff" }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 17,
+                        }}
+                      >
+                        <Link
+                          href="/OurServices"
+                          className="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors font-medium"
+                          onClick={closeSidebar}
+                        >
+                          Services
+                        </Link>
+                      </motion.div>
+                      <motion.div
+                        whileHover={{ x: -10, backgroundColor: "#eff6ff" }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 17,
+                        }}
+                      >
+                        <Link
+                          href="/About"
+                          className="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors font-medium"
+                          onClick={closeSidebar}
+                        >
+                          About Us
+                        </Link>
+                      </motion.div>
+                      <motion.div
+                        whileHover={{ x: -10, backgroundColor: "#eff6ff" }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 17,
+                        }}
+                      >
+                        <Link
+                          href="/Testimonials"
+                          className="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors font-medium"
+                          onClick={closeSidebar}
+                        >
+                          Testimonials
+                        </Link>
+                      </motion.div>
+                      <motion.div
                         whileHover={{
                           scale: 1.02,
                           boxShadow: "0 10px 25px rgba(59, 130, 246, 0.3)",
@@ -389,16 +445,22 @@ const FunctionalSidebar = () => {
                           damping: 17,
                         }}
                       >
-                        Get Started
-                      </motion.button>
+                        <Link
+                          href="/GetStarted"
+                          className="block w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all font-medium shadow-md text-center"
+                          onClick={closeSidebar}
+                        >
+                          Get Started
+                        </Link>
+                      </motion.div>
                     </motion.nav>
                   )}
 
+                
+
                   {/* Contact Information */}
                   <motion.div
-                    className={`border-t border-gray-200 ${
-                      isMobile ? "pt-6" : "pt-0"
-                    }`}
+                    className="border-t border-gray-200 pt-6"
                     variants={itemVariants}
                   >
                     <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
@@ -452,7 +514,7 @@ const FunctionalSidebar = () => {
                             Phone
                           </p>
                           <motion.a
-                            href="tel:009-215-5596"
+                            href="tel:6475370690"
                             className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
                             whileHover={{ scale: 1.05 }}
                             transition={{
@@ -461,7 +523,7 @@ const FunctionalSidebar = () => {
                               damping: 17,
                             }}
                           >
-                            009-215-5596
+                            647 537 0690
                           </motion.a>
                         </div>
                       </motion.div>
@@ -515,26 +577,32 @@ const FunctionalSidebar = () => {
                           icon: Facebook,
                           label: "Facebook",
                           color: "hover:text-blue-600",
+                          href: "https://facebook.com",
                         },
                         {
                           icon: Twitter,
                           label: "Twitter",
                           color: "hover:text-sky-500",
+                          href: "https://twitter.com",
                         },
                         {
                           icon: Instagram,
                           label: "Instagram",
                           color: "hover:text-pink-600",
+                          href: "https://instagram.com",
                         },
                         {
                           icon: Linkedin,
                           label: "LinkedIn",
                           color: "hover:text-blue-700",
+                          href: "https://linkedin.com",
                         },
-                      ].map(({ icon: Icon, label, color }) => (
+                      ].map(({ icon: Icon, label, color, href }) => (
                         <motion.a
                           key={label}
-                          href="#"
+                          href={href}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className={`p-3 text-gray-600 ${color} hover:bg-gray-50 rounded-xl transition-colors shadow-sm border border-gray-200`}
                           whileHover={{
                             scale: 1.1,
@@ -555,8 +623,6 @@ const FunctionalSidebar = () => {
                     </div>
                   </motion.div>
                 </div>
-
-                {/* Sidebar Footer */}
               </motion.div>
             </motion.div>
           </>

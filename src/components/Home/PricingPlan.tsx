@@ -1,10 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence,Variants  } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { CheckCircle, ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const PricingPlan = () => {
+  const router = useRouter();
   const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">(
     "monthly"
   );
@@ -60,7 +63,7 @@ const PricingPlan = () => {
   ];
 
   // Animation variants
-  const containerVariants:Variants   = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -72,7 +75,7 @@ const PricingPlan = () => {
     },
   };
 
-  const itemVariants:Variants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -81,7 +84,7 @@ const PricingPlan = () => {
     },
   };
 
-  const sliderVariants:Variants = {
+  const sliderVariants: Variants = {
     enter: (direction: string) => {
       return {
         x: direction === "right" ? 300 : -300,
@@ -116,6 +119,19 @@ const PricingPlan = () => {
   const prevPlan = () => {
     setDirection("left");
     setCurrentPlan((prev) => (prev === 0 ? plans.length - 1 : prev - 1));
+  };
+
+  const handleGetStarted = (planName: string) => {
+    const price =
+      billingCycle === "monthly"
+        ? plans.find((p) => p.name === planName)?.monthlyPrice
+        : plans.find((p) => p.name === planName)?.yearlyPrice;
+
+    router.push(
+      `/Plans-Form?plan=${encodeURIComponent(
+        planName
+      )}&cycle=${billingCycle}&price=${price}`
+    );
   };
 
   return (
@@ -226,6 +242,7 @@ const PricingPlan = () => {
                 </div>
 
                 <button
+                  onClick={() => handleGetStarted(plan.name)}
                   className={`w-full py-3 rounded-lg font-medium mb-6 transition-colors ${
                     plan.popular
                       ? "bg-blue-600 hover:bg-blue-700 text-white"
@@ -298,6 +315,7 @@ const PricingPlan = () => {
                 </div>
 
                 <button
+                  onClick={() => handleGetStarted(plans[currentPlan].name)}
                   className={`w-full py-3 rounded-lg font-medium mb-6 transition-colors ${
                     plans[currentPlan].popular
                       ? "bg-blue-600 hover:bg-blue-700 text-white"
@@ -364,9 +382,11 @@ const PricingPlan = () => {
             We offer tailored solutions for multi-location restaurants and
             franchises.
           </p>
-          <button className="bg-white hover:bg-gray-100 text-blue-600 px-6 py-2 rounded-full text-sm font-medium shadow-md border border-blue-200 transition-colors">
-            Contact Sales
-          </button>
+          <Link href="/contact">
+            <button className="bg-white hover:bg-gray-100 text-blue-600 px-6 py-2 rounded-full text-sm font-medium shadow-md border border-blue-200 transition-colors">
+              Contact Sales
+            </button>
+          </Link>
         </motion.div>
       </div>
     </section>

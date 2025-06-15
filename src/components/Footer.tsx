@@ -13,6 +13,8 @@ import {
   Globe,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const footerLinks = [
@@ -42,7 +44,7 @@ const Footer = () => {
     },
     {
       icon: <Phone className="w-5 h-5 text-blue-400" />,
-      text: "009-215-5596",
+      text: "647 537 0690",
     },
     {
       icon: <Mail className="w-5 h-5 text-blue-400" />,
@@ -86,12 +88,16 @@ const Footer = () => {
             className="space-y-6"
           >
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md">
-                <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                  <div className="w-3 h-3 bg-white rounded-full"></div>
-                </div>
+              <div className="flex items-center space-x-3">
+                <motion.div className="" transition={{ duration: 0.6 }}>
+                  <Image
+                    src={logo}
+                    alt="Agency Logo"
+                    width={250}
+                    className="grayscale"
+                  />
+                </motion.div>
               </div>
-              <span className="text-2xl font-bold">TableTurn Media</span>
             </div>
             <p className="text-blue-100">
               Helping restaurants grow through strategic digital marketing since

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@studio-freight/lenis": "^1.0.42",
     "@types/locomotive-scroll": "^4.1.4",
     "framer-motion": "^12.18.1",
@@ -17,7 +18,8 @@
     "motion": "^12.18.1",
     "next": "15.3.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "sonner": "^2.0.5"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

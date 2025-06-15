@@ -56,7 +56,7 @@ const About = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br h-[85vh] from-blue-600 to-blue-500 text-white py-10 px-5 sm:px-6 lg:px-8 grid place-items-center">
+      <section className="relative bg-gradient-to-br min-h-[85vh] from-blue-600 to-blue-500 text-white py-10 px-5 sm:px-6 lg:px-8 grid place-items-center">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial="hidden"
@@ -65,7 +65,7 @@ const About = () => {
             variants={containerVariants}
             className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
           >
-            <div className="space-y-6">
+            <div className="space-y-6 ">
               <motion.h1
                 variants={itemVariants}
                 className="text-4xl sm:text-5xl font-bold leading-tight"
@@ -80,11 +80,11 @@ const About = () => {
                 from third-party platforms
               </motion.p>
             </div>
-            <motion.div variants={itemVariants} className="relative">
+            <motion.div variants={itemVariants} className="relative ">
               <Image
                 src={aboutHero}
                 alt="Restaurant owners discussing strategy"
-                className="w-120 h-120"
+                className="w-100 h-90"
                 priority
               />
             </motion.div>
@@ -93,7 +93,7 @@ const About = () => {
       </section>
 
       {/* Our Story */}
-      <section className="py-20 px-5 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+      <section className="py-15 px-5 sm:px-6 lg:px-8 max-w-6xl mx-auto">
         <motion.div
           initial="hidden"
           whileInView="visible"

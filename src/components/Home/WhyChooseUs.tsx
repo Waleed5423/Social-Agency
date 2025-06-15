@@ -3,6 +3,7 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
 import { Star, Award, Clock, BarChart2, Users, Heart } from "lucide-react";
+import Link from "next/link";
 
 const WhyChooseUs = () => {
   const reasons = [
@@ -41,7 +42,7 @@ const WhyChooseUs = () => {
   ];
 
   // Animation variants
-  const containerVariants:Variants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -53,7 +54,7 @@ const WhyChooseUs = () => {
     },
   };
 
-  const itemVariants:Variants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -129,11 +130,14 @@ const WhyChooseUs = () => {
             Still have questions?
           </h3>
           <p className="text-gray-600 mb-4">
-            We&apos;re happy to discuss how we can help your specific restaurant.
+            We&apos;re happy to discuss how we can help your specific
+            restaurant.
           </p>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full text-sm font-medium shadow-md transition-colors">
-            Schedule a Free Consultation
-          </button>
+          <Link href="/GetStarted">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full text-sm font-medium shadow-md transition-colors">
+              Schedule a Free Consultation
+            </button>
+          </Link>
         </motion.div>
       </div>
     </section>

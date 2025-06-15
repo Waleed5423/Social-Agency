@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -265,9 +266,11 @@ const Testimonials = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
+          <Link href="/Testimonials">
           <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-sm font-medium shadow-md transition-colors">
             Read More Success Stories
           </button>
+          </Link>
         </motion.div>
       </div>
     </section>
