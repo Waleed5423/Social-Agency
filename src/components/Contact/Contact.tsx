@@ -246,7 +246,6 @@ const Contact = () => {
             </form>
           </motion.div>
 
-          {/* Contact Info */}
           <motion.div
             initial="hidden"
             whileInView="visible"
