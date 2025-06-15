@@ -121,6 +121,7 @@
           phone: "",
         });
       } catch (error) {
+        console.error("Request failed:", error);
         toast.error("Failed to send request", {
           description: "Please try again later or contact us directly.",
           icon: <CheckCircle className="w-5 h-5 text-red-500" />,

@@ -75,6 +75,7 @@ const Contact = () => {
         message: "",
       });
     } catch (error) {
+      console.error('Failed to send message:', error); // Added error logging
       toast.error('Failed to send message', {
         icon: <XCircle className="w-5 h-5 text-red-500" />,
         description: 'Please try again later.',

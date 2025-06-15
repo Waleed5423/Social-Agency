@@ -129,6 +129,7 @@ const Plan = () => {
         message: "",
       });
     } catch (error) {
+      console.error("Form submission failed:", error); // Added error logging
       toast.error("Failed to submit form. Please try again later.");
     } finally {
       setIsLoading(false);
@@ -338,10 +339,14 @@ const Plan = () => {
 
               <p className="text-sm text-gray-500">
                 By submitting this form, you agree to our{" "}
-                <Link href="/Privacy-Policy" className="text-blue-600 hover:underline">
+                <Link
+                  href="/Privacy-Policy"
+                  className="text-blue-600 hover:underline"
+                >
                   Privacy Policy
                 </Link>
-                . We&apos;ll never share your information without your permission.
+                . We&apos;ll never share your information without your
+                permission.
               </p>
             </form>
           </motion.div>
