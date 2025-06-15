@@ -1,8 +1,12 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Plan from "@/components/Plans/Plan";
 
-const page = () => {
-  return <Plan />;
+const Page = () => {
+  return (
+    <Suspense fallback={<div>Loading plan details...</div>}>
+      <Plan />
+    </Suspense>
+  );
 };
 
-export default page;
+export default Page;
