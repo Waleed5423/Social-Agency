@@ -15,8 +15,8 @@ import {
   CheckCircle,
   XCircle,
 } from "lucide-react";
-import emailjs from '@emailjs/browser';
-import { Toaster, toast } from 'sonner';
+import emailjs from "@emailjs/browser";
+import { Toaster, toast } from "sonner";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -54,6 +54,7 @@ const Contact = () => {
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         {
+          subject: `New Contact Form Submission from ${formData.name}`,
           from_name: formData.name,
           from_email: formData.email,
           phone_number: formData.phone,
@@ -62,9 +63,9 @@ const Contact = () => {
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
 
-      toast.success('Message sent successfully!', {
+      toast.success("Message sent successfully!", {
         icon: <CheckCircle className="w-5 h-5 text-green-500" />,
-        description: 'We will get back to you soon.',
+        description: "We will get back to you soon.",
       });
 
       // Reset form
@@ -75,10 +76,10 @@ const Contact = () => {
         message: "",
       });
     } catch (error) {
-      console.error('Failed to send message:', error); // Added error logging
-      toast.error('Failed to send message', {
+      console.error("Failed to send message:", error); // Added error logging
+      toast.error("Failed to send message", {
         icon: <XCircle className="w-5 h-5 text-red-500" />,
-        description: 'Please try again later.',
+        description: "Please try again later.",
       });
     } finally {
       setIsSubmitting(false);
@@ -114,7 +115,7 @@ const Contact = () => {
   return (
     <div className="bg-white">
       <Toaster position="top-center" richColors />
-      
+
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-600 to-blue-500 text-white py-28 px-5 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto text-center">
@@ -236,10 +237,10 @@ const Contact = () => {
                   type="submit"
                   disabled={isSubmitting}
                   className={`bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium w-full transition-colors flex items-center justify-center gap-2 ${
-                    isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+                    isSubmitting ? "opacity-70 cursor-not-allowed" : ""
                   }`}
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'} 
+                  {isSubmitting ? "Sending..." : "Send Message"}
                   {!isSubmitting && <ArrowRight className="w-5 h-5" />}
                 </button>
               </motion.div>

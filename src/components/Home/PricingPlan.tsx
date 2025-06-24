@@ -8,55 +8,53 @@ import { useRouter } from "next/navigation";
 
 const PricingPlan = () => {
   const router = useRouter();
-  const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">(
-    "monthly"
-  );
   const [currentPlan, setCurrentPlan] = useState(0);
   const [direction, setDirection] = useState<"left" | "right">("right");
 
   const plans = [
     {
       name: "Starter",
-      monthlyPrice: 499,
-      yearlyPrice: 449,
-      description: "Perfect for small restaurants getting started with ads",
+      price: 299,
+      description: "For restaurants testing ads for the first time",
       features: [
-        "1 Campaign Setup",
-        "Local Targeting",
-        "Basic Ad Creatives",
-        "Weekly Optimization",
-        "Monthly Reporting",
+        "1 ad campaign per month",
+        "Facebook & Instagram ad setup",
+        "Radius-based local targeting",
+        "1 custom graphic provided",
+        "Weekly performance check-ins",
+        "Clear ad spend recommendations",
+        "Ad spend not included ($150–300/month suggested)",
       ],
       popular: false,
     },
     {
       name: "Growth",
-      monthlyPrice: 999,
-      yearlyPrice: 899,
-      description: "For growing restaurants needing more visibility",
+      price: 499,
+      description: "For restaurants looking for consistent customer flow",
       features: [
-        "3 Campaign Setups",
-        "Advanced Local Targeting",
-        "Custom Ad Creatives",
-        "Daily Optimization",
-        "Weekly Reporting",
-        "Offer Strategy",
+        "Up to 2 campaigns per month",
+        "Custom audience targeting and retargeting",
+        "2–3 branded graphics monthly",
+        "Full ad management via Meta Ads Manager",
+        "Bi-weekly performance reporting",
+        "Basic Google Business listing review",
+        "Call-to-action setup",
+        "Ad spend not included ($300–600/month suggested)",
       ],
       popular: true,
     },
     {
-      name: "Premium",
-      monthlyPrice: 1999,
-      yearlyPrice: 1799,
-      description: "Complete solution for high-volume restaurants",
+      name: "Scale",
+      price: 899,
+      description: "For multi-location restaurants or aggressive growth goals",
       features: [
-        "Unlimited Campaigns",
-        "Hyper-Local Targeting",
-        "Premium Ad Creatives",
-        "24/7 Monitoring",
-        "Daily Reporting",
-        "Full Funnel Strategy",
-        "Dedicated Account Manager",
+        "Unlimited campaigns and offer rotations",
+        "Advanced audience segmentation",
+        "Up to 5 branded graphics per month",
+        "Conversion-focused strategy",
+        "Detailed monthly reporting + strategy call",
+        "Optional funnel advice",
+        "Ad spend not included (flexible budget)",
       ],
       popular: false,
     },
@@ -122,33 +120,27 @@ const PricingPlan = () => {
   };
 
   const handleGetStarted = (planName: string) => {
-    const price =
-      billingCycle === "monthly"
-        ? plans.find((p) => p.name === planName)?.monthlyPrice
-        : plans.find((p) => p.name === planName)?.yearlyPrice;
-
+    const price = plans.find((p) => p.name === planName)?.price;
     router.push(
-      `/Plans-Form?plan=${encodeURIComponent(
-        planName
-      )}&cycle=${billingCycle}&price=${price}`
+      `/Plans-Form?plan=${encodeURIComponent(planName)}&price=${price}`
     );
   };
 
   return (
-    <section className="relative bg-white py-16 px-5 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative bg-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Decorative blue elements */}
       <div className="absolute inset-0 overflow-hidden opacity-10">
         <div className="absolute -top-20 -left-20 w-64 h-64 rounded-full bg-blue-200"></div>
         <div className="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-blue-100"></div>
       </div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
-          className="text-center mb-14"
+          className="text-center mb-14 px-4"
         >
           <motion.h2
             variants={itemVariants}
@@ -162,40 +154,11 @@ const PricingPlan = () => {
           >
             Pay as you grow with no hidden fees. Get started risk-free.
           </motion.p>
-
-          {/* Billing toggle */}
-          <motion.div
-            variants={itemVariants}
-            className="flex justify-center items-center mt-8"
-          >
-            <div className="bg-blue-50 p-1 rounded-full inline-flex">
-              <button
-                onClick={() => setBillingCycle("monthly")}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
-                  billingCycle === "monthly"
-                    ? "bg-blue-600 text-white shadow-md"
-                    : "text-blue-600"
-                }`}
-              >
-                Monthly
-              </button>
-              <button
-                onClick={() => setBillingCycle("yearly")}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
-                  billingCycle === "yearly"
-                    ? "bg-blue-600 text-white shadow-md"
-                    : "text-blue-600"
-                }`}
-              >
-                Yearly (Save 10%)
-              </button>
-            </div>
-          </motion.div>
         </motion.div>
 
-        {/* Desktop Grid View */}
+        {/* Desktop Grid View - Adjusted for better responsiveness */}
         <motion.div
-          className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="hidden md:grid grid-cols-1 lg:grid-cols-3 gap-6 px-4"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -206,7 +169,7 @@ const PricingPlan = () => {
               key={index}
               variants={itemVariants}
               whileHover={{ y: -5 }}
-              className={`relative rounded-xl border-2 overflow-hidden transition-all ${
+              className={`relative rounded-xl border-2 overflow-hidden transition-all flex flex-col h-full ${
                 plan.popular
                   ? "border-blue-500 shadow-xl"
                   : "border-gray-200 shadow-md"
@@ -218,7 +181,7 @@ const PricingPlan = () => {
                 </div>
               )}
 
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-2xl font-bold text-blue-600 mb-2">
                   {plan.name}
                 </h3>
@@ -226,19 +189,9 @@ const PricingPlan = () => {
 
                 <div className="mb-6">
                   <span className="text-4xl font-bold text-gray-900">
-                    $
-                    {billingCycle === "monthly"
-                      ? plan.monthlyPrice
-                      : plan.yearlyPrice}
+                    ${plan.price}
                   </span>
-                  <span className="text-gray-500">
-                    /{billingCycle === "monthly" ? "mo" : "yr"}
-                  </span>
-                  {billingCycle === "yearly" && (
-                    <div className="text-green-600 text-sm mt-1">
-                      Save ${plan.monthlyPrice * 12 - plan.yearlyPrice}
-                    </div>
-                  )}
+                  <span className="text-gray-500">/mo</span>
                 </div>
 
                 <button
@@ -252,7 +205,7 @@ const PricingPlan = () => {
                   Get Started
                 </button>
 
-                <ul className="space-y-3">
+                <ul className="space-y-3 flex-grow">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-start">
                       <CheckCircle className="w-5 h-5 text-blue-500 mt-0.5 mr-2 flex-shrink-0" />
@@ -266,7 +219,7 @@ const PricingPlan = () => {
         </motion.div>
 
         {/* Mobile Slider View */}
-        <div className="md:hidden relative overflow-hidden h-[600px]">
+        <div className="md:hidden relative overflow-hidden h-[650px] mx-4">
           <AnimatePresence custom={direction} initial={false}>
             <motion.div
               key={currentPlan}
@@ -275,11 +228,11 @@ const PricingPlan = () => {
               initial="enter"
               animate="center"
               exit="exit"
-              className={`absolute inset-x-4 p-6 rounded-xl border-2 ${
+              className={`absolute inset-x-0 p-6 rounded-xl border-2 ${
                 plans[currentPlan].popular
                   ? "border-blue-500 shadow-xl"
                   : "border-gray-200 shadow-md"
-              } bg-white`}
+              } bg-white h-[600px]`}
             >
               {plans[currentPlan].popular && (
                 <div className="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
@@ -287,7 +240,7 @@ const PricingPlan = () => {
                 </div>
               )}
 
-              <div className="p-4">
+              <div className="p-4 h-full flex flex-col">
                 <h3 className="text-2xl font-bold text-blue-600 mb-2">
                   {plans[currentPlan].name}
                 </h3>
@@ -297,21 +250,9 @@ const PricingPlan = () => {
 
                 <div className="mb-6">
                   <span className="text-4xl font-bold text-gray-900">
-                    $
-                    {billingCycle === "monthly"
-                      ? plans[currentPlan].monthlyPrice
-                      : plans[currentPlan].yearlyPrice}
+                    ${plans[currentPlan].price}
                   </span>
-                  <span className="text-gray-500">
-                    /{billingCycle === "monthly" ? "mo" : "yr"}
-                  </span>
-                  {billingCycle === "yearly" && (
-                    <div className="text-green-600 text-sm mt-1">
-                      Save $
-                      {plans[currentPlan].monthlyPrice * 12 -
-                        plans[currentPlan].yearlyPrice}
-                    </div>
-                  )}
+                  <span className="text-gray-500">/mo</span>
                 </div>
 
                 <button
@@ -325,7 +266,7 @@ const PricingPlan = () => {
                   Get Started
                 </button>
 
-                <ul className="space-y-3">
+                <ul className="space-y-3 flex-grow overflow-y-auto">
                   {plans[currentPlan].features.map((feature, i) => (
                     <li key={i} className="flex items-start">
                       <CheckCircle className="w-5 h-5 text-blue-500 mt-0.5 mr-2 flex-shrink-0" />

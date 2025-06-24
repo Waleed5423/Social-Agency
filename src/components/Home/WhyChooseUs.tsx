@@ -15,9 +15,9 @@ const WhyChooseUs = () => {
     },
     {
       icon: <Award className="w-8 h-8 text-blue-600" />,
-      title: "Industry Expertise",
+      title: "Focused Approach",
       description:
-        "10+ years specializing exclusively in restaurant marketing.",
+        "Team that is focused 100% on restrurant brand scaling resulting in a very streamlined approach.",
     },
     {
       icon: <Clock className="w-8 h-8 text-blue-600" />,

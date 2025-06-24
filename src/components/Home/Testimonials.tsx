@@ -180,7 +180,7 @@ const Testimonials = () => {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ duration: 0.5, ease: "easeInOut" }}
+                transition={{ duration: 0.5 }}
                 className="absolute inset-0"
               >
                 <div

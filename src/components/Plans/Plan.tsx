@@ -13,7 +13,6 @@ interface PlanData {
   price: number;
   description: string;
   features: string[];
-  billingCycle: "monthly" | "yearly";
 }
 
 const Plan = () => {
@@ -32,42 +31,45 @@ const Plan = () => {
   useEffect(() => {
     // Get plan data from URL params
     const planName = searchParams?.get("plan");
-    const billingCycle =
-      (searchParams?.get("cycle") as "monthly" | "yearly") || "monthly";
     const price = Number(searchParams?.get("price"));
 
     const planDetails = {
       Starter: {
-        description: "Perfect for small restaurants getting started with ads",
+        description: "For restaurants testing ads for the first time",
         features: [
-          "1 Campaign Setup",
-          "Local Targeting",
-          "Basic Ad Creatives",
-          "Weekly Optimization",
-          "Monthly Reporting",
+          "1 ad campaign per month",
+          "Facebook & Instagram ad setup",
+          "Radius-based local targeting",
+          "1 custom graphic provided",
+          "Weekly performance check-ins",
+          "Clear ad spend recommendations",
+          "Ad spend not included ($150–300/month suggested)",
         ],
       },
       Growth: {
-        description: "For growing restaurants needing more visibility",
+        description: "For restaurants looking for consistent customer flow",
         features: [
-          "3 Campaign Setups",
-          "Advanced Local Targeting",
-          "Custom Ad Creatives",
-          "Daily Optimization",
-          "Weekly Reporting",
-          "Offer Strategy",
+          "Up to 2 campaigns per month",
+          "Custom audience targeting and retargeting",
+          "2–3 branded graphics monthly",
+          "Full ad management via Meta Ads Manager",
+          "Bi-weekly performance reporting",
+          "Basic Google Business listing review",
+          "Call-to-action setup",
+          "Ad spend not included ($300–600/month suggested)",
         ],
       },
-      Premium: {
-        description: "Complete solution for high-volume restaurants",
+      Scale: {
+        description:
+          "For multi-location restaurants or aggressive growth goals",
         features: [
-          "Unlimited Campaigns",
-          "Hyper-Local Targeting",
-          "Premium Ad Creatives",
-          "24/7 Monitoring",
-          "Daily Reporting",
-          "Full Funnel Strategy",
-          "Dedicated Account Manager",
+          "Unlimited campaigns and offer rotations",
+          "Advanced audience segmentation",
+          "Up to 5 branded graphics per month",
+          "Conversion-focused strategy",
+          "Detailed monthly reporting + strategy call",
+          "Optional funnel advice",
+          "Ad spend not included (flexible budget)",
         ],
       },
     };
@@ -83,7 +85,6 @@ const Plan = () => {
         description:
           planDetails[planName as keyof typeof planDetails].description,
         features: planDetails[planName as keyof typeof planDetails].features,
-        billingCycle,
       });
     } else {
       // Redirect back if no valid plan
@@ -110,12 +111,15 @@ const Plan = () => {
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         {
-          ...formData,
+          subject: `${formData.name} applied for ${planData?.name} Plan ($${planData?.price}/mo)`,
+          form_type: "plan",
+          from_name: formData.name,
+          restaurant_name: formData.restaurantName,
+          from_email: formData.email,
+          phone_number: formData.phone,
           plan: planData?.name,
-          price: `$${planData?.price}/${
-            planData?.billingCycle === "monthly" ? "mo" : "yr"
-          }`,
-          billingCycle: planData?.billingCycle,
+          price: `$${planData?.price}/mo`,
+          message: formData.message,
         },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
@@ -129,7 +133,7 @@ const Plan = () => {
         message: "",
       });
     } catch (error) {
-      console.error("Form submission failed:", error); // Added error logging
+      console.error("Form submission failed:", error);
       toast.error("Failed to submit form. Please try again later.");
     } finally {
       setIsLoading(false);
@@ -186,14 +190,7 @@ const Plan = () => {
                 <div className="text-4xl font-bold text-gray-900 mb-1">
                   ${planData.price}
                 </div>
-                <div className="text-gray-500">
-                  per {planData.billingCycle === "monthly" ? "month" : "year"}
-                </div>
-                {planData.billingCycle === "yearly" && (
-                  <div className="text-green-600 text-sm mt-2">
-                    You&apos;re saving 10% compared to monthly billing
-                  </div>
-                )}
+                <div className="text-gray-500">per month</div>
               </div>
             </div>
 
