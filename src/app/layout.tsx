@@ -13,8 +13,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Table Turn Media",
-  description: "Table Turn Media",
+  title: "TableTurn Media",
+  description: "TableTurn Media",
   icons: {
     icon: "/logo.png", // or '/favicon.ico' if you prefer
     // you can add other icons too
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         url: "/logo.png", // Path to your logo in public folder
         width: 1200,
         height: 630,
-        alt: "Table Turn Media",
+        alt: "TableTurn Media",
       },
     ],
   },
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
         url: "/logo.png", // Same path for Twitter
         width: 1200,
         height: 630,
-        alt: "Table Turn Media",
+        alt: "TableTurn Media",
       },
     ],
   },

@@ -99,9 +99,9 @@ const Started = () => {
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         {
           subject: `New Consultation Request: ${formData.restaurantName}`,
-          from_name: formData.name,
-          from_email: formData.email,
-          phone_number: formData.phone,
+          name: formData.name, // Fixed: changed from from_name to name
+          email: formData.email, // Fixed: changed from from_email to email
+          phone: formData.phone, // Fixed: changed from phone_number to phone
           restaurant_name: formData.restaurantName,
         },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!

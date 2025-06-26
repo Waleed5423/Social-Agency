@@ -109,7 +109,7 @@ const Plan = () => {
     try {
       await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        process.env.NEXT_PUBLIC_PLAN_EMAILJS_TEMPLATE_ID!,
         {
           subject: `${formData.name} applied for ${planData?.name} Plan ($${planData?.price}/mo)`,
           form_type: "plan",
@@ -157,7 +157,7 @@ const Plan = () => {
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <Toaster position="top-center" richColors />
+        <Toaster position="top-center" richColors className="z-1100 mt-30" />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

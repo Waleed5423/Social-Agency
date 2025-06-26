@@ -51,16 +51,17 @@ const Contact = () => {
 
     try {
       await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID_NEW!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID_NEW!,
         {
           subject: `New Contact Form Submission from ${formData.name}`,
           from_name: formData.name,
           from_email: formData.email,
           phone_number: formData.phone,
           message: formData.message,
+          date_time: new Date().toLocaleString(),
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY_NEW!
       );
 
       toast.success("Message sent successfully!", {
