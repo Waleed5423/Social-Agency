@@ -7,7 +7,7 @@ import {
   X,
   Phone,
   Mail,
-  MapPin,
+  // MapPin,
   Facebook,
   Twitter,
   Instagram,
@@ -456,8 +456,6 @@ const FunctionalSidebar = () => {
                     </motion.nav>
                   )}
 
-                
-
                   {/* Contact Information */}
                   <motion.div
                     className="border-t border-gray-200 pt-6"
@@ -468,7 +466,7 @@ const FunctionalSidebar = () => {
                     </h3>
                     <div className="space-y-4">
                       {/* Address */}
-                      <motion.div
+                      {/* <motion.div
                         className="flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors"
                         whileHover={{ x: -5 }}
                         transition={{
@@ -493,7 +491,7 @@ const FunctionalSidebar = () => {
                             New York, NY 10001
                           </p>
                         </div>
-                      </motion.div>
+                      </motion.div> */}
 
                       {/* Phone */}
                       <motion.div
@@ -577,25 +575,25 @@ const FunctionalSidebar = () => {
                           icon: Facebook,
                           label: "Facebook",
                           color: "hover:text-blue-600",
-                          href: "https://facebook.com",
+                          href: "https://facebook.com/yourpage", // Replace with your Facebook URL
                         },
                         {
                           icon: Twitter,
                           label: "Twitter",
                           color: "hover:text-sky-500",
-                          href: "https://twitter.com",
+                          href: "https://twitter.com/yourhandle", // Replace with your Twitter URL
                         },
                         {
                           icon: Instagram,
                           label: "Instagram",
                           color: "hover:text-pink-600",
-                          href: "https://instagram.com",
+                          href: "https://www.instagram.com/tableturn_media?igsh=a2VqaGowam84a3lu&utm_source=qr", // Added your Instagram link
                         },
                         {
                           icon: Linkedin,
                           label: "LinkedIn",
                           color: "hover:text-blue-700",
-                          href: "https://linkedin.com",
+                          href: "https://linkedin.com/company/yourcompany", // Replace with your LinkedIn URL
                         },
                       ].map(({ icon: Icon, label, color, href }) => (
                         <motion.a

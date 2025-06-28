@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import {
   Phone,
   Mail,
-  MapPin,
+  // MapPin,
   Facebook,
   Twitter,
   Instagram,
@@ -38,10 +38,10 @@ const Footer = () => {
   ];
 
   const contactInfo = [
-    {
-      icon: <MapPin className="w-5 h-5 text-blue-400" />,
-      text: "123 Business Street, Suite 100, New York, NY 10001",
-    },
+    // {
+    //   icon: <MapPin className="w-5 h-5 text-blue-400" />,
+    //   text: "123 Business Street, Suite 100, New York, NY 10001",
+    // },
     {
       icon: <Phone className="w-5 h-5 text-blue-400" />,
       text: "647 537 0690",
@@ -66,7 +66,7 @@ const Footer = () => {
     {
       icon: <Instagram className="w-5 h-5" />,
       name: "Instagram",
-      url: "#",
+      url: "https://www.instagram.com/tableturn_media?igsh=a2VqaGowam84a3lu&utm_source=qr",
     },
     {
       icon: <Linkedin className="w-5 h-5" />,
@@ -77,8 +77,8 @@ const Footer = () => {
 
   return (
     <footer className="bg-gradient-to-br from-blue-600 to-blue-500 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20 pt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 pb-5">
           {/* Brand Info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -192,7 +192,7 @@ const Footer = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="border-t border-blue-400/30 mt-2"
+          className="border-t border-blue-400/30 "
         />
 
         <motion.div
@@ -200,7 +200,7 @@ const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row justify-between items-center  text-blue-100 text-sm"
+          className="flex justify-center items-center py-4"
         >
           <p>
             © {new Date().getFullYear()} TableTurn Media. All rights reserved.

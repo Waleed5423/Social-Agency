@@ -1,124 +1,98 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useMemo } from "react";
 import { motion, Variants } from "framer-motion";
 import { Quote, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const Testimonials = () => {
-  const testimonials = [
-    {
-      quote:
-        "TableTurn Media doubled our takeout orders in just 2 months! Their targeted ads brought in exactly the right customers.",
-      author: "Sarah Johnson",
-      role: "Owner, The Rustic Spoon",
-      rating: 5,
-      date: "2 days ago",
-      timestamp: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000), // 2 days ago
-    },
-    {
-      quote:
-        "After struggling with ads for years, these guys finally cracked the code for our restaurant. Our weekends are now fully booked!",
-      author: "Michael Chen",
-      role: "Manager, Bella Napoli",
-      rating: 5,
-      date: "1 week ago",
-      timestamp: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000), // 1 week ago
-    },
-    {
-      quote:
-        "The team understands restaurant marketing like no one else. We've seen a 40% increase in revenue since working with them.",
-      author: "David Rodriguez",
-      role: "CEO, Taco Fiesta Chain",
-      rating: 5,
-      date: "2 weeks ago",
-      timestamp: new Date(Date.now() - 14 * 24 * 60 * 60 * 1000), // 2 weeks ago
-    },
-    {
-      quote:
-        "Outstanding results! Our daily orders increased by 60% and customer retention improved dramatically. Highly recommend!",
-      author: "Emma Thompson",
-      role: "Owner, Coastal Cafe",
-      rating: 5,
-      date: "3 weeks ago",
-      timestamp: new Date(Date.now() - 21 * 24 * 60 * 60 * 1000), // 3 weeks ago
-    },
-    {
-      quote:
-        "Professional team that delivers on promises. Our social media engagement skyrocketed and so did our profits.",
-      author: "James Wilson",
-      role: "Manager, Urban Grill",
-      rating: 5,
-      date: "1 month ago",
-      timestamp: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000), // 1 month ago
-    },
-    {
-      quote:
-        "Best investment we made for our restaurant. ROI was visible within weeks and continues to grow month after month.",
-      author: "Lisa Park",
-      role: "CEO, Fusion Delights",
-      rating: 5,
-      date: "2 months ago",
-      timestamp: new Date(Date.now() - 60 * 24 * 60 * 60 * 1000), // 2 months ago
-    },
-    {
-      quote:
-        "We went from empty tables to waitlists thanks to TableTurn's strategic campaigns. The team is responsive and results-driven.",
-      author: "Robert Garcia",
-      role: "Owner, Tapas Lounge",
-      rating: 5,
-      date: "2 months ago",
-      timestamp: new Date(Date.now() - 65 * 24 * 60 * 60 * 1000), // ~2 months ago
-    },
-    {
-      quote:
-        "Our catering business tripled after implementing their marketing strategy. They truly understand the food industry.",
-      author: "Jennifer Lee",
-      role: "Director, Savory Events",
-      rating: 5,
-      date: "3 months ago",
-      timestamp: new Date(Date.now() - 90 * 24 * 60 * 60 * 1000), // 3 months ago
-    },
-    {
-      quote:
-        "The analytics provided are incredibly detailed. We can see exactly which ads are driving the most profitable customers.",
-      author: "Thomas Wright",
-      role: "Manager, The Steakhouse",
-      rating: 5,
-      date: "4 months ago",
-      timestamp: new Date(Date.now() - 120 * 24 * 60 * 60 * 1000), // 4 months ago
-    },
-  ];
-
-  // Filter options
-  const filterOptions = [
-    { label: "All", value: "all" },
-    { label: "Last 2 days", value: "2days" },
-    { label: "Last week", value: "1week" },
-    { label: "Recent (Last month)", value: "1month" },
-    { label: "Older (1+ months)", value: "older" },
-  ];
-
-  const [activeFilter, setActiveFilter] = useState("all");
-
-  const filteredTestimonials = testimonials.filter((testimonial) => {
-    const now = new Date();
-    const diffTime = now.getTime() - testimonial.timestamp.getTime();
-    const diffDays = diffTime / (1000 * 60 * 60 * 24);
-
-    switch (activeFilter) {
-      case "2days":
-        return diffDays <= 2;
-      case "1week":
-        return diffDays <= 7;
-      case "1month":
-        return diffDays <= 30;
-      case "older":
-        return diffDays > 30;
-      default:
-        return true;
-    }
-  });
+  // Move testimonials data outside component or use useMemo to prevent recreation
+  const testimonials = useMemo(() => {
+    const baseTime = Date.now();
+    return [
+      {
+        quote:
+          "TableTurn Media doubled our takeout orders in just 2 months! Their targeted ads brought in exactly the right customers.",
+        author: "Sarah Johnson",
+        role: "Owner, The Rustic Spoon",
+        rating: 5,
+        date: "2 days ago",
+        timestamp: new Date(baseTime - 2 * 24 * 60 * 60 * 1000), // 2 days ago
+      },
+      {
+        quote:
+          "After struggling with ads for years, these guys finally cracked the code for our restaurant. Our weekends are now fully booked!",
+        author: "Michael Chen",
+        role: "Manager, Bella Napoli",
+        rating: 5,
+        date: "1 week ago",
+        timestamp: new Date(baseTime - 7 * 24 * 60 * 60 * 1000), // 1 week ago
+      },
+      {
+        quote:
+          "The team understands restaurant marketing like no one else. We've seen a 40% increase in revenue since working with them.",
+        author: "David Rodriguez",
+        role: "CEO, Taco Fiesta Chain",
+        rating: 5,
+        date: "2 weeks ago",
+        timestamp: new Date(baseTime - 14 * 24 * 60 * 60 * 1000), // 2 weeks ago
+      },
+      {
+        quote:
+          "Outstanding results! Our daily orders increased by 60% and customer retention improved dramatically. Highly recommend!",
+        author: "Emma Thompson",
+        role: "Owner, Coastal Cafe",
+        rating: 5,
+        date: "3 weeks ago",
+        timestamp: new Date(baseTime - 21 * 24 * 60 * 60 * 1000), // 3 weeks ago
+      },
+      {
+        quote:
+          "Professional team that delivers on promises. Our social media engagement skyrocketed and so did our profits.",
+        author: "James Wilson",
+        role: "Manager, Urban Grill",
+        rating: 5,
+        date: "1 month ago",
+        timestamp: new Date(baseTime - 30 * 24 * 60 * 60 * 1000), // 1 month ago
+      },
+      {
+        quote:
+          "Best investment we made for our restaurant. ROI was visible within weeks and continues to grow month after month.",
+        author: "Lisa Park",
+        role: "CEO, Fusion Delights",
+        rating: 5,
+        date: "2 months ago",
+        timestamp: new Date(baseTime - 60 * 24 * 60 * 60 * 1000), // 2 months ago
+      },
+      {
+        quote:
+          "We went from empty tables to waitlists thanks to TableTurn's strategic campaigns. The team is responsive and results-driven.",
+        author: "Robert Garcia",
+        role: "Owner, Tapas Lounge",
+        rating: 5,
+        date: "2 months ago",
+        timestamp: new Date(baseTime - 65 * 24 * 60 * 60 * 1000), // ~2 months ago
+      },
+      {
+        quote:
+          "Our catering business tripled after implementing their marketing strategy. They truly understand the food industry.",
+        author: "Jennifer Lee",
+        role: "Director, Savory Events",
+        rating: 5,
+        date: "3 months ago",
+        timestamp: new Date(baseTime - 90 * 24 * 60 * 60 * 1000), // 3 months ago
+      },
+      {
+        quote:
+          "The analytics provided are incredibly detailed. We can see exactly which ads are driving the most profitable customers.",
+        author: "Thomas Wright",
+        role: "Manager, The Steakhouse",
+        rating: 5,
+        date: "4 months ago",
+        timestamp: new Date(baseTime - 120 * 24 * 60 * 60 * 1000), // 4 months ago
+      },
+    ];
+  }, []); // Empty dependency array ensures this only runs once
 
   // Animation variants
   const containerVariants: Variants = {
@@ -186,30 +160,10 @@ const Testimonials = () => {
             Client Success Stories
           </motion.h2>
 
-          {/* Filter buttons */}
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-wrap justify-center gap-3 mb-12"
-          >
-            {filterOptions.map((option) => (
-              <button
-                key={option.value}
-                onClick={() => setActiveFilter(option.value)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  activeFilter === option.value
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
-              >
-                {option.label}
-              </button>
-            ))}
-          </motion.div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredTestimonials.map((testimonial, index) => (
+            {testimonials.map((testimonial, index) => (
               <motion.div
-                key={index}
+                key={`${testimonial.author}-${index}`} // Better key for React
                 variants={itemVariants}
                 whileHover={{ y: -5 }}
                 className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all"
@@ -256,15 +210,6 @@ const Testimonials = () => {
               </motion.div>
             ))}
           </div>
-
-          {filteredTestimonials.length === 0 && (
-            <motion.p
-              variants={itemVariants}
-              className="text-center text-gray-500 py-12"
-            >
-              No testimonials match the selected filter.
-            </motion.p>
-          )}
         </motion.div>
       </section>
 

@@ -12,6 +12,8 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import serviceImage from "@/assets/Ill5.svg";
+import Link from "next/link";
+import img2 from "@/assets/Ill8.svg";
 
 const FirstService = () => {
   const services = [
@@ -105,10 +107,12 @@ const FirstService = () => {
                 customers through your doors.
               </motion.p>
               <motion.div variants={itemVariants}>
-                <button className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-full text-lg font-medium shadow-lg transition-colors flex items-center gap-2">
-                  Book Your Free Strategy Call{" "}
-                  <ArrowRight className="w-5 h-5" />
-                </button>
+                <Link href="/GetStarted">
+                  <button className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-full text-lg font-medium shadow-lg transition-colors flex items-center gap-2">
+                    Book Your Free Strategy Call{" "}
+                    <ArrowRight className="w-5 h-5" />
+                  </button>
+                </Link>
               </motion.div>
             </div>
             <motion.div
@@ -239,20 +243,23 @@ const FirstService = () => {
               ))}
             </ul>
           </motion.div>
+
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gray-100 p-8 rounded-xl"
+            className=" rounded-xl"
           >
-            <div className="aspect-w-16 aspect-h-9 bg-blue-100 rounded-lg overflow-hidden">
-              {/* Placeholder for video or image */}
-              <div className="w-full h-64 bg-blue-200 flex items-center justify-center">
-                <span className="text-blue-600 font-medium">
-                  Video Walkthrough
-                </span>
-              </div>
+            <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden relative">
+              <Image
+                src={img2} // Update with your image path
+                alt="Restaurant advertising demonstration"
+                width={600}
+                height={400}
+                className="object-cover w-full h-full"
+                quality={90}
+              />
             </div>
           </motion.div>
         </div>
@@ -281,9 +288,11 @@ const FirstService = () => {
               convert.
             </motion.p>
             <motion.div variants={itemVariants}>
+              <Link href="/GetStarted">
               <button className="bg-white hover:bg-gray-100 text-blue-500 px-8 py-4 rounded-full text-lg font-medium shadow-lg transition-colors">
                 Book Your Free Strategy Call
               </button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>

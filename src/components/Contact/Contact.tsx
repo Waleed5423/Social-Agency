@@ -5,8 +5,8 @@ import { motion, Variants } from "framer-motion";
 import {
   Phone,
   Mail,
-  MapPin,
-  Clock,
+  // MapPin,
+  // Clock,
   Facebook,
   Twitter,
   Instagram,
@@ -305,7 +305,7 @@ const Contact = () => {
               </div>
 
               {/* Address */}
-              <div className="flex items-start gap-4 p-4 bg-blue-50 rounded-lg">
+              {/* <div className="flex items-start gap-4 p-4 bg-blue-50 rounded-lg">
                 <div className="bg-blue-100 p-3 rounded-full">
                   <MapPin className="w-6 h-6 text-blue-600" />
                 </div>
@@ -318,7 +318,7 @@ const Contact = () => {
                     By appointment only
                   </p>
                 </div>
-              </div>
+              </div> */}
             </motion.div>
 
             {/* Social Links */}
@@ -332,22 +332,32 @@ const Contact = () => {
                     icon: Facebook,
                     name: "Facebook",
                     color: "hover:bg-blue-700",
+                    url: "https://www.facebook.com/yourpage", // Add your Facebook URL
                   },
-                  { icon: Twitter, name: "Twitter", color: "hover:bg-sky-500" },
+                  {
+                    icon: Twitter,
+                    name: "Twitter",
+                    color: "hover:bg-sky-500",
+                    url: "https://www.twitter.com/yourhandle", // Add your Twitter URL
+                  },
                   {
                     icon: Instagram,
                     name: "Instagram",
                     color: "hover:bg-pink-600",
+                    url: "https://www.instagram.com/tableturn_media?igsh=a2VqaGowam84a3lu&utm_source=qr",
                   },
                   {
                     icon: Linkedin,
                     name: "LinkedIn",
                     color: "hover:bg-blue-800",
+                    url: "https://www.linkedin.com/company/yourcompany", // Add your LinkedIn URL
                   },
                 ].map((social, index) => (
                   <motion.a
                     key={index}
-                    href="#"
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`bg-blue-600 ${social.color} text-white p-3 rounded-full transition-colors`}
                     whileHover={{ y: -3 }}
                     whileTap={{ scale: 0.95 }}
@@ -363,7 +373,7 @@ const Contact = () => {
       </section>
 
       {/* Map Section */}
-      {isMounted && (
+      {/* {isMounted && (
         <section className="bg-gray-100 py-12 px-5 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <motion.div
@@ -387,10 +397,10 @@ const Contact = () => {
             </motion.div>
           </div>
         </section>
-      )}
+      )} */}
 
       {/* FAQ CTA */}
-      <section className="py-20 px-5 sm:px-6 lg:px-8 bg-white">
+      <section className="py-20 px-5 sm:px-6 lg:px-8 bg-gray-100 border-t border-blue-400/30" >
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial="hidden"

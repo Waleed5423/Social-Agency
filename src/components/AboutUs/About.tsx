@@ -6,6 +6,8 @@ import { Target, BarChart2, Users, Shield, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import aboutHero from "@/assets/Ill6.svg";
 import teamImage from "@/assets/Ill6.svg";
+import img2 from "@/assets/Ill7.svg";
+import Link from "next/link";
 
 const About = () => {
   const differentiators = [
@@ -124,17 +126,16 @@ const About = () => {
               </p>
             </div>
           </motion.div>
-          <motion.div
-            variants={itemVariants}
-            className="bg-blue-50 p-8 rounded-xl"
-          >
-            <div className="aspect-w-16 aspect-h-9 bg-blue-100 rounded-lg overflow-hidden">
-              {/* Placeholder for video or image */}
-              <div className="w-full h-64 bg-blue-200 flex items-center justify-center">
-                <span className="text-blue-600 font-medium">
-                  Founder&lsquo;s Story Video
-                </span>
-              </div>
+          <motion.div variants={itemVariants} className=" p-8 rounded-xl">
+            <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden relative">
+              <Image
+                src={img2} // Update with your actual image path
+                alt="TableTurn Media founders"
+                width={600}
+                height={400}
+                className="object-cover w-full h-full"
+                quality={90}
+              />
             </div>
           </motion.div>
         </motion.div>
@@ -274,9 +275,11 @@ const About = () => {
               - not a delivery app.
             </motion.p>
             <motion.div variants={itemVariants}>
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-medium shadow-lg transition-colors flex items-center gap-2 mx-auto">
-                Book Your Free Strategy Call <ArrowRight className="w-5 h-5" />
-              </button>
+              <Link href="/GetStarted">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-medium shadow-lg transition-colors flex items-center gap-2 mx-auto">
+                  Book Your Free Strategy Call <ArrowRight className="w-5 h-5" />
+                </button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>
