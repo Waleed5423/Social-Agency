@@ -8,7 +8,7 @@ import {
   Phone,
   Mail,
   // MapPin,
-  Facebook,
+  // Facebook,
   Twitter,
   Instagram,
   Linkedin,
