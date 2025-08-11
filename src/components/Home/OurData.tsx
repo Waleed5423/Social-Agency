@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { motion, useAnimation, useInView,Variants } from "framer-motion";
-import { useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, useAnimation, useInView, Variants } from "framer-motion";
 
 const OurData = () => {
   const controls = useAnimation();
@@ -13,7 +12,6 @@ const OurData = () => {
     { value: 133, label: "Happy Clients" },
     { value: 7, label: "Hard Workers" },
     { value: 11, label: "Complete Projects" },
-    { value: 8, label: "Years Of Experience" },
   ];
 
   const [counters, setCounters] = useState(stats.map(() => 0));
@@ -22,10 +20,9 @@ const OurData = () => {
     if (isInView) {
       controls.start("visible");
 
-      // Start counting animation for each stat
       stats.forEach((stat, index) => {
-        const duration = 2; // seconds
-        const increment = stat.value / (duration * 60); // assuming 60fps
+        const duration = 2;
+        const increment = stat.value / (duration * 60);
 
         let current = 0;
         const timer = setInterval(() => {
@@ -40,12 +37,12 @@ const OurData = () => {
             newCounters[index] = Math.floor(current);
             return newCounters;
           });
-        }, 1000 / 60); // ~60fps
+        }, 1000 / 60);
       });
     }
   }, [isInView]);
 
-  const containerVariants:Variants= {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -57,7 +54,7 @@ const OurData = () => {
     },
   };
 
-  const itemVariants:Variants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -80,7 +77,7 @@ const OurData = () => {
           initial="hidden"
           animate={controls}
           variants={containerVariants}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center place-items-center"
         >
           {stats.map((stat, index) => (
             <motion.div key={index} variants={itemVariants} className="p-6">

@@ -20,7 +20,7 @@ const PricingPlan = () => {
         "1 ad campaign per month",
         "Facebook & Instagram ad setup",
         "Radius-based local targeting",
-        "1 custom graphic provided",
+        "Add copy and design",
         "Weekly performance check-ins",
         "Clear ad spend recommendations",
         "Ad spend not included ($150–300/month suggested)",
@@ -34,7 +34,7 @@ const PricingPlan = () => {
       features: [
         "Up to 2 campaigns per month",
         "Custom audience targeting and retargeting",
-        "2–3 branded graphics monthly",
+        "Add copy and design monthly",
         "Full ad management via Meta Ads Manager",
         "Bi-weekly performance reporting",
         "Basic Google Business listing review",
@@ -50,7 +50,7 @@ const PricingPlan = () => {
       features: [
         "Unlimited campaigns and offer rotations",
         "Advanced audience segmentation",
-        "Up to 5 branded graphics per month",
+        "Add copy and design monthly",
         "Conversion-focused strategy",
         "Detailed monthly reporting + strategy call",
         "Optional funnel advice",
@@ -169,11 +169,10 @@ const PricingPlan = () => {
               key={index}
               variants={itemVariants}
               whileHover={{ y: -5 }}
-              className={`relative rounded-xl border-2 overflow-hidden transition-all flex flex-col h-full ${
-                plan.popular
+              className={`relative rounded-xl border-2 overflow-hidden transition-all flex flex-col h-full ${plan.popular
                   ? "border-blue-500 shadow-xl"
                   : "border-gray-200 shadow-md"
-              }`}
+                }`}
             >
               {plan.popular && (
                 <div className="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
@@ -196,11 +195,10 @@ const PricingPlan = () => {
 
                 <button
                   onClick={() => handleGetStarted(plan.name)}
-                  className={`w-full py-3 rounded-lg font-medium mb-6 transition-colors ${
-                    plan.popular
+                  className={`w-full py-3 rounded-lg font-medium mb-6 transition-colors ${plan.popular
                       ? "bg-blue-600 hover:bg-blue-700 text-white"
                       : "bg-blue-100 hover:bg-blue-200 text-blue-600"
-                  }`}
+                    }`}
                 >
                   Get Started
                 </button>
@@ -228,11 +226,10 @@ const PricingPlan = () => {
               initial="enter"
               animate="center"
               exit="exit"
-              className={`absolute inset-x-0 p-6 rounded-xl border-2 ${
-                plans[currentPlan].popular
+              className={`absolute inset-x-0 p-6 rounded-xl border-2 ${plans[currentPlan].popular
                   ? "border-blue-500 shadow-xl"
                   : "border-gray-200 shadow-md"
-              } bg-white h-[600px]`}
+                } bg-white h-[600px]`}
             >
               {plans[currentPlan].popular && (
                 <div className="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
@@ -257,11 +254,10 @@ const PricingPlan = () => {
 
                 <button
                   onClick={() => handleGetStarted(plans[currentPlan].name)}
-                  className={`w-full py-3 rounded-lg font-medium mb-6 transition-colors ${
-                    plans[currentPlan].popular
+                  className={`w-full py-3 rounded-lg font-medium mb-6 transition-colors ${plans[currentPlan].popular
                       ? "bg-blue-600 hover:bg-blue-700 text-white"
                       : "bg-blue-100 hover:bg-blue-200 text-blue-600"
-                  }`}
+                    }`}
                 >
                   Get Started
                 </button>
@@ -303,9 +299,8 @@ const PricingPlan = () => {
                   setDirection(index > currentPlan ? "right" : "left");
                   setCurrentPlan(index);
                 }}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentPlan ? "bg-blue-600" : "bg-blue-200"
-                }`}
+                className={`w-3 h-3 rounded-full transition-colors ${index === currentPlan ? "bg-blue-600" : "bg-blue-200"
+                  }`}
                 aria-label={`Go to plan ${index + 1}`}
               />
             ))}

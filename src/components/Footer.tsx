@@ -95,8 +95,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-blue-100">
-              Helping restaurants grow through strategic digital marketing since
-              2015.
+              Helping restaurants grow through strategic digital marketing.
             </p>
 
             {/* Language Selector */}
