@@ -54,14 +54,9 @@ const Footer = () => {
 
   const socialLinks = [
     {
-      icon: <Facebook className="w-5 h-5" />,
-      name: "Facebook",
-      url: "#",
-    },
-    {
       icon: <Twitter className="w-5 h-5" />,
       name: "Twitter",
-      url: "#",
+      url: "https://twitter.com/tableturnmedia",
     },
     {
       icon: <Instagram className="w-5 h-5" />,
@@ -71,7 +66,7 @@ const Footer = () => {
     {
       icon: <Linkedin className="w-5 h-5" />,
       name: "LinkedIn",
-      url: "#",
+      url: "https://www.linkedin.com/company/tableturn-media/",
     },
   ];
 

@@ -251,12 +251,12 @@ const FunctionalSidebar = () => {
               >
                 <Link href="/About">ABOUT US</Link>
               </motion.h4>
-              <motion.h4
+              {/* <motion.h4
                 className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
                 <Link href="/Testimonials">TESTIMONIALS</Link>
-              </motion.h4>
+              </motion.h4> */}
               <motion.button
                 className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors font-medium shadow-md"
                 whileTap={{ scale: 1.01 }}
@@ -416,7 +416,7 @@ const FunctionalSidebar = () => {
                           About Us
                         </Link>
                       </motion.div>
-                      <motion.div
+                      {/* <motion.div
                         whileHover={{ x: -10, backgroundColor: "#eff6ff" }}
                         whileTap={{ scale: 0.95 }}
                         transition={{
@@ -432,7 +432,7 @@ const FunctionalSidebar = () => {
                         >
                           Testimonials
                         </Link>
-                      </motion.div>
+                      </motion.div> */}
                       <motion.div
                         whileHover={{
                           scale: 1.02,
@@ -571,17 +571,12 @@ const FunctionalSidebar = () => {
                     </h3>
                     <div className="flex space-x-3">
                       {[
-                        {
-                          icon: Facebook,
-                          label: "Facebook",
-                          color: "hover:text-blue-600",
-                          href: "https://facebook.com/yourpage", // Replace with your Facebook URL
-                        },
+
                         {
                           icon: Twitter,
                           label: "Twitter",
                           color: "hover:text-sky-500",
-                          href: "https://twitter.com/yourhandle", // Replace with your Twitter URL
+                          href: "https://twitter.com/tableturn_media", // Replace with your Twitter URL
                         },
                         {
                           icon: Instagram,
@@ -593,7 +588,7 @@ const FunctionalSidebar = () => {
                           icon: Linkedin,
                           label: "LinkedIn",
                           color: "hover:text-blue-700",
-                          href: "https://linkedin.com/company/yourcompany", // Replace with your LinkedIn URL
+                          href: "https://www.linkedin.com/company/tableturn-mediaq", // Replace with your LinkedIn URL
                         },
                       ].map(({ icon: Icon, label, color, href }) => (
                         <motion.a

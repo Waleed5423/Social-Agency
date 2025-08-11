@@ -4,7 +4,7 @@ import Offer from "@/components/Home/Offer";
 import PricingPlan from "@/components/Home/PricingPlan";
 import OurData from "@/components/Home/OurData";
 import WhyChooseUs from "@/components/Home/WhyChooseUs";
-import Testimonials from "@/components/Home/Testimonials";
+// import Testimonials from "@/components/Home/Testimonials";
 import React from "react";
 
 const page = () => {
@@ -16,7 +16,7 @@ const page = () => {
       <PricingPlan />
       <OurData />
       <WhyChooseUs />
-      <Testimonials />
+      {/* <Testimonials /> */}
     </>
   );
 };

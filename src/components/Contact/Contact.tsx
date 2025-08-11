@@ -328,17 +328,12 @@ const Contact = () => {
               </h3>
               <div className="flex gap-4">
                 {[
-                  {
-                    icon: Facebook,
-                    name: "Facebook",
-                    color: "hover:bg-blue-700",
-                    url: "https://www.facebook.com/yourpage", // Add your Facebook URL
-                  },
+                  
                   {
                     icon: Twitter,
                     name: "Twitter",
                     color: "hover:bg-sky-500",
-                    url: "https://www.twitter.com/yourhandle", // Add your Twitter URL
+                    url: "https://x.com/tableturnmedia", // Add your Twitter URL
                   },
                   {
                     icon: Instagram,
@@ -350,7 +345,7 @@ const Contact = () => {
                     icon: Linkedin,
                     name: "LinkedIn",
                     color: "hover:bg-blue-800",
-                    url: "https://www.linkedin.com/company/yourcompany", // Add your LinkedIn URL
+                    url: "https://www.linkedin.com/company/tableturnmedia/?viewAsMember=true", // Add your LinkedIn URL
                   },
                 ].map((social, index) => (
                   <motion.a
